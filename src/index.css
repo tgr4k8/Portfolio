@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fondo: #000814;
+  /* ahora lo ponemos muy oscuro directamente */
+  --color-card: #1e253a;
+  --color-acento: #38bdf8;
+}
+
+body {
+  @apply bg-fondo text-white antialiased;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Giro lento por si lo quieres reutilizar en otros bloques */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulso de brillo del "reactor" */
+@keyframes glowPulse {
+  0% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.7)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.5));
+  }
+
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 60px rgba(56, 189, 248, 1)) drop-shadow(0 0 120px rgba(168, 85, 247, 0.9));
+  }
+
+  100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.7)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.5));
+  }
+}
+
+/* Clase utilitaria que usamos en HeroBackgroundExtreme */
+.animate-glowPulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
